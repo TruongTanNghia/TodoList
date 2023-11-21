@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- Main -->
+    <div id="todo-container">
+      <!-- 1. Header -->
+      <h2>Todo List</h2>
+
+      <!-- 2. Body -->
+      <!-- List Todo -->
+      <ul id="todo-list">
+        <li class="todo-item"></li>
+      </ul>
+
+      <!-- Button Add todo popup -->
+      <button class="btn btn-primary" onclick="openPopup('add')">
+        Add Todo
+      </button>
+
+      <!-- Popup start -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <h1 class="close" onclick="closePopup()">×</h1>
+          <h3 id="popup-title">Add Todo</h3>
+          <div class="popup-form">
+            <input type="text" id="todo-text" placeholder="Todo text" />
+            <div>
+              <button class="btn btn-primary" onclick="saveTodo()">Save</button>
+              <button class="btn btn-danger" onclick="closePopup()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Popup end-->
+      <!-- Popup edit start -->
+      <div id="editPopup" class="popup">
+        <div class="popup-content">
+          <h1 class="close" onclick="closeEditPopup()">×</h1>
+          <h3 id="edit-popup-title">Edit Todo</h3>
+          <div class="popup-form">
+            <input
+              type="text"
+              id="edit-todo-text"
+              placeholder="Edit Todo text"
+            />
+            <div>
+              <button class="btn btn-primary" onclick="saveEditedTodo()">
+                Save
+              </button>
+              <button class="btn btn-danger" onclick="closeEditPopup()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Popup edit end -->
+
+      <!-- Audio success -->
+      <audio id="toastSoundSuccess">
+        <source src="./assets/success.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Audio error -->
+      <audio id="toastSoundError">
+        <source src="./assets/error.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Toast -->
+      <div id="toast" class="toast"></div>
+
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>
